@@ -45,8 +45,10 @@ try {
                 console.debug(`each.path is:`,each.path)
                 console.debug(`output is:`,output)
                 console.debug(`error is:`,error)
+                
                 console.debug(await run`git checkout ${startingCommit} ${Out(returnAsString)}`)
                 console.debug(`continuing anyways!`)
+                shutdown // no we are not.
                 continue
             }
             classes[Class] = eval(`(()=>{ class ${Class} {}; return ${Class} })()`)
@@ -161,4 +163,5 @@ try {
 } catch (error) {
     await run`git checkout master`
 }
+
 // (this comment is part of deno-guillotine, dont remove) #>
